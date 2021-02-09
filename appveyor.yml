@@ -1,0 +1,3 @@
+skip_commits:
+  message: /Created.*\.(png|jpg|jpeg|bmp|gif)/
+  author: Gravy59
