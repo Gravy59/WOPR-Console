@@ -5,6 +5,6 @@
 ![Repo Size](https://img.shields.io/github/repo-size/Gravy59/WOPR-Console?style=flat-square)
 
 WOPR Console is a spoof of Joshua (the computer) from WarGames. It is programed in C#.
-[//]: # (![A demo of the console application](img/demo-1.png))
+![A demo of the console application](img/demo-1.png)
 
 The app isn't compiled; I will compile in the first release but for now you will have to have Visual Studio and .NET Core installed.
