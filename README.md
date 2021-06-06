@@ -4,5 +4,9 @@
 [![License](https://img.shields.io/github/license/gravy59/wopr-console.svg?label=License&style=flat-square)](https://github.com/Gravy59/WOPR-Console/blob/master/LICENSE)
 ![Repo Size](https://img.shields.io/github/repo-size/Gravy59/WOPR-Console?style=flat-square)
 
-WOPR Console is a spoof of Joshua (the computer) from WarGames. It is programed in C#.
-![A demo of the console application](img/demo-1.png)
+WOPR Console is a spoof of the War Operations Plan Response from WarGames. It is programed in C# and .NET 5.
+## Installation
+Just grab a release in your OS. If you are on a Unix or Linux based system you may need to use ```sudo chmod +x``` to run it.
+
+
+<img src="img/demo-1.png" width="450px" alt="A demo of the console application" />
