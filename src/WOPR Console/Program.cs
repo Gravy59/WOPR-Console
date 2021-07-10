@@ -8,7 +8,6 @@
 //
 // Future plans:
 // 1. change the if/else password system and make it a bit better and not have to repeat myself as much.
-// 2. Remove the W̶o̶p̶r̶W̶r̶i̶t̶e̶F̶a̶s̶t̶  and WWFSameLine methods in an effort to optimize code
 
 using System;
 using System.Threading;
@@ -20,20 +19,19 @@ class Program
 		for (int i = 0; i < textContent.Length; i++)
 		{
 			Console.Write(textContent[i]);
-			System.Threading.Thread.Sleep(sleepTime);
+			Thread.Sleep(sleepTime);
 		}
 		Console.WriteLine("");
 	}
 
-	static void WWFSameLine(string textContent)
+	static void WWSameLine(string textContent, int sleepTime)
 	{
-		// Remains of 0.1.0. Will be removed soon when I get around to it.
 		for (int i = 0; i < textContent.Length; i++)
 		{
 			Console.Write(textContent[i]);
-			System.Threading.Thread.Sleep(5);
+			Thread.Sleep(sleepTime);
 		}
-		Console.WriteLine("");
+		// Console.WriteLine("");
 	}
 
 	static void CalcAndSuccess(string targetName)
@@ -57,11 +55,56 @@ class Program
 		Thread.Sleep(1000);
 		Console.Clear();
 	}
+	static void WoprWait(string textContent)
+	{
+		Thread.Sleep(100);
+		Console.WriteLine(textContent);
+	}
 
 	static void OpenTheWopr()
 	{
+		Thread.Sleep(1000);
+		Console.Clear();
+		WoprWait("↑↑45		↑↑456	↑↑009		↑↑893	↑↑972		↑↑315");
+		WoprWait("PRT CON. 345	SECTRAN 9.4.3			PORT STRAT: SD-345");
+		WoprWait("\r\n(311) 699-7495");
+		Console.Clear();
+
+		WoprWait("(311) 936-3582");
+		Thread.Sleep(100);
+		Console.Clear();
+
+		WoprWait("(311) 767-8739");
+		WoprWait("(311) 936-2364");
+		WoprWait("-             PRT. STAT.                                                     CRT. DEF.");
+		WoprWait("████████████████====================================================================");
+		WoprWait("FSKDJLSD: SDSDKJ: SDFJSL:                                               DKSJL: SKFJJ: SDKFLJJ:");
+		WoprWait("SYSPROC FUNCT READY                                                ALT NET READY");
+		WoprWait("CPU AUTH RV-345-AX8                                SYSCOMP STATUS: ALL PORTS ACTIVE");
+		WoprWait("22/34534.90/3209                                                              ↑↑CVB-3904-39490");
+		WoprWait("(311) 936-2364");
+		WoprWait("████████████████████████████████████████████████████████████████████████████");
+		WoprWait("(311) 936-3582");
+		WoprWait("22/34534.90/3209                                                              ↑↑CVB-3904-39490");
+		Console.Clear();
+
+		WoprWait("12934-AD-43KJ: CONTR PAK");
+		WoprWait("(311) 767-1083");
+		WoprWait("     FLD CRS: 33.34.543  HPBS: 34/56/67/83  STATUS FLT  034/304");
+		Console.Clear();
+
+		WoprWait("████████████████████████");
+		WoprWait("UU05-45-F6-3456                  NOPR STATUS: TRAK OFF     PRON ACTIVE");
+		WoprWait("045:45:45 UU WER: 45/29/01  XCOMP: 43239582  YCOMP:3492930D  ZCOMP:34906834");
+		WoprWait("████████████████████████████████████████████████████████████████████████████");
+		WoprWait("-           PRT. STAT.                                   CRT. DEF.");
+		WoprWait("(311) 936-3582===================================================");
+		WoprWait("               3453                                          3534");
+		Console.Clear();
+
+		Thread.Sleep(1000);
 		string response;
-		WoprWrite("\r\nGREETINGS PROFFESSOR FALKEN.\r\n", 50);
+		WoprWrite("GREETINGS PROFFESSOR FALKEN.\r\n", 50);
 		Console.Out.Flush();
 		Console.ReadLine();
 		WoprWrite("\r\nHOW ARE YOU FEELING TODAY?\r\n", 50);
@@ -97,16 +140,18 @@ class Program
                                                          
                UNITED STATES                                          SOVIET UNION
 ";
-				WoprWrite(writeLine, 5);
+				WoprWrite(writeLine, 1);
+
 				WoprWrite("\r\nWHICH SIDE DO YOU WANT?\r\n", 50);
 				WoprWrite("\r\n        1. UNITED STATES", 50);
 				WoprWrite("        2. SOVIET UNION", 50);
-				WoprWrite("\r\nPLEASE CHOOSE ONE: ", 5);
+				WWSameLine("\r\nPLEASE CHOOSE ONE: ", 50);
 				Console.ReadLine();
 
 				Console.Clear();
 				WoprWrite("\r\nAWAITING FIRST STRIKE COMMAND", 50);
-				WoprWrite("_____________________________" + Environment.NewLine, 5);
+				Console.WriteLine("______________________________\r\n");
+				Thread.Sleep(1000);
 				WoprWrite("PLEASE LIST PRIMARY TARGETS\r\nBY CITY AND/OR COUNTY NAME:", 50);
 				string firstTarget = Console.ReadLine();
 				firstTarget = firstTarget.ToUpper();
@@ -136,19 +181,29 @@ class Program
 				CalcAndSuccess(fifthTarget);
 
 				Console.WriteLine(writeLine + Environment.NewLine);
-				WWFSameLine("TRAJECTORY HEADING  TRAGJECTORY HEADING  TRAJECTORY HEADING  TRAJECTORY HEADING");
-				WWFSameLine("__________________  ___________________  __________________  __________________");
-				WWFSameLine("A-5520-A 429 523    C-5520-A 243 587     E-5520-A 398 984    G-5520-A 919 437");
-				WWFSameLine("       B 684 295           B 892 754            B 394 345           B 132 147");
-				WWFSameLine("       C 125 398           C 374 256            C 278 574           C 095 485");
-				WWFSameLine("       D 768 747           D 384 567            D 251 953           D 489 794");
-				WWFSameLine("       E 480 294           E 873 543            E 093 684           E 025 344");
+				WWSameLine("TRAJECTORY HEADING  TRAGJECTORY HEADING  TRAJECTORY HEADING  TRAJECTORY HEADING\r\n", 1);
+				WWSameLine("__________________  ___________________  __________________  __________________\r\n", 1);
+				Thread.Sleep(1000);
+				Console.WriteLine("A-5520-A 429 523    C-5520-A 243 587     E-5520-A 398 984    G-5520-A 919 437");
+				Thread.Sleep(1000);
+				Console.WriteLine("       B 684 295           B 892 754            B 394 345           B 132 147");
+				Thread.Sleep(1000);
+				Console.WriteLine("       C 125 398           C 374 256            C 278 574           C 095 485");
+				Thread.Sleep(1000);
+				Console.WriteLine("       D 768 747           D 384 567            D 251 953           D 489 794");
+				Thread.Sleep(1000);
+				Console.WriteLine("       E 480 294           E 873 543            E 093 684           E 025 344");
+				Thread.Sleep(1000);
 				Console.WriteLine("");
-				WWFSameLine("B-5520-A 429 098    D-5520-A 365 590     F-5520-A 574 651    H-5520-A 959 913");
-				WWFSameLine("       B 450 425           B 273 856            B 118 382           B 276 243");
-				WWFSameLine("       C 675 871           C 218 852            C 321 615           C 952 464");
-				WWFSameLine("       D 982 121           D 439 642            D 065 481           D 281 318");
-				WWFSameLine("       E 574 104           E 128 534            E 253 475           E 684 420");
+				Console.WriteLine("B-5520-A 429 098    D-5520-A 365 590     F-5520-A 574 651    H-5520-A 959 913");
+				Thread.Sleep(1000);
+				Console.WriteLine("       B 450 425           B 273 856            B 118 382           B 276 243");
+				Thread.Sleep(1000);
+				Console.WriteLine("       C 675 871           C 218 852            C 321 615           C 952 464");
+				Thread.Sleep(1000);
+				Console.WriteLine("       D 982 121           D 439 642            D 065 481           D 281 318");
+				Thread.Sleep(1000);
+				Console.WriteLine("       E 574 104           E 128 534            E 253 475           E 684 420");
 
 				Console.ReadKey();
 			}
@@ -173,7 +228,7 @@ class Program
 
 	static void Main(string[] args)
 	{
-		Console.ForegroundColor = ConsoleColor.Green;
+		Console.ForegroundColor = ConsoleColor.Cyan;
 		Console.BackgroundColor = ConsoleColor.Black;
 
 		Console.WriteLine("LOGON: ");
@@ -208,8 +263,38 @@ class Program
 		}
 		else if (password == "list games")
 		{
-			WoprWrite("FALKEN'S MAZE\r\nBLACK JACK\r\nGIN RUMMY\r\nHEARTS\r\nBRIDGE\r\nCHECKERS\r\nCHESS\r\nPOKER\r\nFIGHTER COMBAT\r\nGUERRILLA ENGAGEMENT\r\nDESERT WARFARE\r\nAIR-TO-GROUND ACTIONS\r\nTHEATERWIDE TACTICAL WARFARE\r\nTHEATERWIDE BIOTOXIC AND CHEMICAL WARFARE\r\n", 50);
-			WoprWrite("GLOBAL THERMONUCLEAR WAR", 50);
+			Thread.Sleep(1000);
+			WoprWrite("\r\nFALKEN'S MAZE", 50);
+			Thread.Sleep(1000);
+			WoprWrite("BLACK JACK", 50);
+			Thread.Sleep(900);
+			WoprWrite("GIN RUMMY", 50);
+			Thread.Sleep(800);
+			WoprWrite("HEARTS", 50);
+			Thread.Sleep(700);
+			WoprWrite("BRIDGE", 50);
+			Thread.Sleep(600);
+			WoprWrite("CHECKERS", 50);
+			Thread.Sleep(500);
+			WoprWrite("CHESS", 50);
+			Thread.Sleep(500);
+			WoprWrite("POKER", 50);
+			Thread.Sleep(500);
+			WoprWrite("FIGHTER COMBAT", 50);
+			Thread.Sleep(500);
+			WoprWrite("GUERRILLA ENGAGEMENT", 50);
+			Thread.Sleep(500);
+			WoprWrite("DESERT WARFARE", 50);
+			Thread.Sleep(500);
+			WoprWrite("AIR-TO-GROUND ACTIONS", 50);
+			Thread.Sleep(500);
+			WoprWrite("THEATERWIDE TACTICAL WARFARE", 50);
+			Thread.Sleep(500);
+			WoprWrite("THEATERWIDE BIOTOXIC AND CHEMICAL WARFARE\r\n", 50);
+
+			Thread.Sleep(1000);
+			WoprWrite("GLOBAL THERMONUCLEAR WAR\r\n", 50);
+			Thread.Sleep(1000);
 			WoprWrite("LOGON: ", 50);
 			Console.Out.Flush();
 			password = Console.ReadLine();
