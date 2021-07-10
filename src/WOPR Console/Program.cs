@@ -165,19 +165,11 @@ class Program
 				fifthTarget = fifthTarget.ToUpper();
 				Console.Clear();
 
-				// Target 1 trajectory 'calculation'
+				// Target trajectory 'calculation'
 				CalcAndSuccess(firstTarget);
-
-				// Target 2 trajectory 'calculation'
 				CalcAndSuccess(secondTarget);
-
-				// Target 3 trajectory 'calculation'
 				CalcAndSuccess(thirdTarget);
-
-				// Target 4 trajectory 'calculation'
 				CalcAndSuccess(fourthTarget);
-
-				// Target 5 trajectory 'calculation'
 				CalcAndSuccess(fifthTarget);
 
 				Console.WriteLine(writeLine + Environment.NewLine);
