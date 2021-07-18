@@ -40,12 +40,11 @@ class Program
 		WoprWrite("CALCULATING IDEAL TRAJECTORY FOR " + targetName, 50);
 
 		// Loading dots each half a second appart
-		Thread.Sleep(500);
-		Console.Write(".");
-		Thread.Sleep(500);
-		Console.Write(".");
-		Thread.Sleep(500);
-		Console.Write(".");
+		for (int i = 0; i < 3; i++)
+		{
+			Thread.Sleep(500);
+			Console.Write(".");
+		}
 
 		// Wait one second, clear, then display success. 
 		// Wait one more second, then clear console again to restart the process.
