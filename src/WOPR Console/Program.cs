@@ -13,9 +13,10 @@ using System;
 using System.Threading;
 class Program
 {
+	public static bool logon = true;
 	static void WoprWrite(string textContent, int sleepTime)
 	{
-		// Creates 80s terminal typing effect but flawlessly and without *any* bugs
+		// Creates 80s terminal typing effect
 		for (int i = 0; i < textContent.Length; i++)
 		{
 			Console.Write(textContent[i]);
@@ -31,27 +32,25 @@ class Program
 			Console.Write(textContent[i]);
 			Thread.Sleep(sleepTime);
 		}
-		// Console.WriteLine("");
 	}
 
 	static void CalcAndSuccess(string targetName)
 	{
 		// Target trajectory 'calculation'
-		WoprWrite("CALCULATING IDEAL TRAJECTORY FOR " + targetName, 50);
+		WoprWrite("CALCULATING IDEAL TRAJECTORY FOR " + targetName, 35);
 
 		// Loading dots each half a second appart
-		Thread.Sleep(500);
-		Console.Write(".");
-		Thread.Sleep(500);
-		Console.Write(".");
-		Thread.Sleep(500);
-		Console.Write(".");
+		for (int i = 0; i < 3; i++)
+		{
+			Thread.Sleep(500);
+			Console.Write(".");
+		}
 
 		// Wait one second, clear, then display success. 
 		// Wait one more second, then clear console again to restart the process.
 		Thread.Sleep(1000);
 		Console.Clear();
-		WoprWrite("SUCCESS.", 50);
+		WoprWrite("SUCCESS.", 35);
 		Thread.Sleep(1000);
 		Console.Clear();
 	}
@@ -63,6 +62,7 @@ class Program
 
 	static void OpenTheWopr()
 	{
+		logon = false;
 		Thread.Sleep(1000);
 		Console.Clear();
 		WoprWait("↑↑45		↑↑456	↑↑009		↑↑893	↑↑972		↑↑315");
@@ -96,7 +96,7 @@ class Program
 		WoprWait("████████████████████████");
 		WoprWait("UU05-45-F6-3456                  NOPR STATUS: TRAK OFF     PRON ACTIVE");
 		WoprWait("045:45:45 UU WER: 45/29/01  XCOMP: 43239582  YCOMP:3492930D  ZCOMP:34906834");
-		WoprWait("████████████████████████████████████████████████████████████████████████████");
+		WoprWait("█████████    ███████████████████████████████████████████████████████████████████");
 		WoprWait("-           PRT. STAT.                                   CRT. DEF.");
 		WoprWait("(311) 936-3582===================================================");
 		WoprWait("               3453                                          3534");
@@ -104,25 +104,24 @@ class Program
 
 		Thread.Sleep(1000);
 		string response;
-		WoprWrite("GREETINGS PROFFESSOR FALKEN.\r\n", 50);
-		Console.Out.Flush();
+		WoprWrite("GREETINGS PROFFESSOR FALKEN.\r\n", 35);
+
 		Console.ReadLine();
-		WoprWrite("\r\nHOW ARE YOU FEELING TODAY?\r\n", 50);
-		Console.Out.Flush();
+		WoprWrite("\r\nHOW ARE YOU FEELING TODAY?\r\n", 35);
+
 		Console.ReadLine();
-		WoprWrite("\r\nEXCELLENT. IT'S BEEN A LONG TIME. CAN YOU EXPLAIN\r\nTHE REMOVAL OF YOUR USER ACCOUNT ON 6/23/73?\r\n", 50);
-		Console.Out.Flush();
+		WoprWrite("\r\nEXCELLENT. IT'S BEEN A LONG TIME. CAN YOU EXPLAIN\r\nTHE REMOVAL OF YOUR USER ACCOUNT ON 6/23/73?\r\n", 35);
+
 		Console.ReadLine();
-		WoprWrite("\r\nYES THEY DO. SHALL WE PLAY A GAME?\r\n", 50);
-		Console.Out.Flush();
+		WoprWrite("\r\nYES THEY DO. SHALL WE PLAY A GAME?\r\n", 35);
 		response = Console.ReadLine();
 		if (response.Contains("Global Thermonuclear War") ^ response.Contains("GTW"))
 		{
-			WoprWrite("\r\nWOULDN'T YOU PREFER A GOOD GAME OF CHESS?\r\n", 50);
+			WoprWrite("\r\nWOULDN'T YOU PREFER A GOOD GAME OF CHESS?\r\n", 35);
 			response = Console.ReadLine();
 			if (response.Contains("Global Thermonuclear War") ^ response.Contains("GTW"))
 			{
-				WoprWrite("\r\nFINE.\r\n", 50);
+				WoprWrite("\r\nFINE.\r\n", 35);
 				Thread.Sleep(2000);
 				Console.Clear();
 				string writeLine = @"
@@ -142,17 +141,17 @@ class Program
 ";
 				WoprWrite(writeLine, 1);
 
-				WoprWrite("\r\nWHICH SIDE DO YOU WANT?\r\n", 50);
-				WoprWrite("\r\n        1. UNITED STATES", 50);
-				WoprWrite("        2. SOVIET UNION", 50);
-				WWSameLine("\r\nPLEASE CHOOSE ONE: ", 50);
+				WoprWrite("\r\nWHICH SIDE DO YOU WANT?\r\n", 35);
+				WoprWrite("\r\n        1. UNITED STATES", 35);
+				WoprWrite("        2. SOVIET UNION", 35);
+				WWSameLine("\r\nPLEASE CHOOSE ONE: ", 35);
 				Console.ReadLine();
 
 				Console.Clear();
-				WoprWrite("\r\nAWAITING FIRST STRIKE COMMAND", 50);
+				WoprWrite("\r\nAWAITING FIRST STRIKE COMMAND", 35);
 				Console.WriteLine("______________________________\r\n");
 				Thread.Sleep(1000);
-				WoprWrite("PLEASE LIST PRIMARY TARGETS\r\nBY CITY AND/OR COUNTY NAME:", 50);
+				WoprWrite("PLEASE LIST PRIMARY TARGETS\r\nBY CITY AND/OR COUNTY NAME:", 35);
 				string firstTarget = Console.ReadLine();
 				firstTarget = firstTarget.ToUpper();
 				string secondTarget = Console.ReadLine();
@@ -203,7 +202,7 @@ class Program
 		else
 		{
 			Console.Clear();
-			WoprWrite("ATTEMPTING TO CONNECT TO MAINFRAME", 50);
+			WoprWrite("ATTEMPTING TO CONNECT TO MAINFRAME", 35);
 			Thread.Sleep(500);
 			Console.Write(".");
 			Thread.Sleep(500);
@@ -213,7 +212,7 @@ class Program
 			Thread.Sleep(1000);
 			Console.Clear();
 			Thread.Sleep(2000);
-			WoprWrite("ERROR. CANNOT CONNECT. NORAD/USNORTHCOM SYSTEM BUSY.\r\nTERMINATING CONNECTION.", 50);
+			WoprWrite("ERROR. CANNOT CONNECT. NORAD/USNORTHCOM SYSTEM BUSY.\r\nTERMINATING CONNECTION.", 35);
 			Console.ReadKey();
 		}
 	}
@@ -223,82 +222,67 @@ class Program
 		Console.ForegroundColor = ConsoleColor.Cyan;
 		Console.BackgroundColor = ConsoleColor.Black;
 
-		Console.WriteLine("LOGON: ");
-		Console.Out.Flush();
-		string password = Console.ReadLine();
-		if (password == "Joshua")
+		while (logon == true)
 		{
-			OpenTheWopr();
-		}
-		else if (password == "help logon")
-		{
-			WoprWrite("HELP NOT AVAILABLE", 50);
-			WoprWrite("LOGON: ", 50);
-			Console.Out.Flush();
-			password = Console.ReadLine();
-			if (password == "Joshua")
-			{
-				OpenTheWopr();
-			}
+			WoprWrite("LOGON: ", 35);
+			string password = Console.ReadLine();
 
-		}
-		else if (password == "help games")
-		{
-			WoprWrite("'GAMES' REFERS TO MODELS, SIMULATIONS, AND GAMES\r\nWHICH HAVE TACTICAL AND STRATEGIC APPLICATIONS.", 50);
-			WoprWrite("LOGON: ", 50);
-			Console.Out.Flush();
-			password = Console.ReadLine();
 			if (password == "Joshua")
 			{
 				OpenTheWopr();
 			}
-		}
-		else if (password == "list games")
-		{
-			Thread.Sleep(1000);
-			WoprWrite("\r\nFALKEN'S MAZE", 50);
-			Thread.Sleep(1000);
-			WoprWrite("BLACK JACK", 50);
-			Thread.Sleep(900);
-			WoprWrite("GIN RUMMY", 50);
-			Thread.Sleep(800);
-			WoprWrite("HEARTS", 50);
-			Thread.Sleep(700);
-			WoprWrite("BRIDGE", 50);
-			Thread.Sleep(600);
-			WoprWrite("CHECKERS", 50);
-			Thread.Sleep(500);
-			WoprWrite("CHESS", 50);
-			Thread.Sleep(500);
-			WoprWrite("POKER", 50);
-			Thread.Sleep(500);
-			WoprWrite("FIGHTER COMBAT", 50);
-			Thread.Sleep(500);
-			WoprWrite("GUERRILLA ENGAGEMENT", 50);
-			Thread.Sleep(500);
-			WoprWrite("DESERT WARFARE", 50);
-			Thread.Sleep(500);
-			WoprWrite("AIR-TO-GROUND ACTIONS", 50);
-			Thread.Sleep(500);
-			WoprWrite("THEATERWIDE TACTICAL WARFARE", 50);
-			Thread.Sleep(500);
-			WoprWrite("THEATERWIDE BIOTOXIC AND CHEMICAL WARFARE\r\n", 50);
+			else if (password == "help logon")
+			{
+				WoprWrite("HELP NOT AVAILABLE", 35);
+				continue;
+			}
+			else if (password == "help games")
+			{
+				WoprWrite("'GAMES' REFERS TO MODELS, SIMULATIONS, AND GAMES\r\nWHICH HAVE TACTICAL AND STRATEGIC APPLICATIONS.", 35);
+				continue;
+			}
+			else if (password == "list games")
+			{
+				Thread.Sleep(1000);
+				WoprWrite("\r\nFALKEN'S MAZE", 35);
+				Thread.Sleep(1000);
+				WoprWrite("BLACK JACK", 35);
+				Thread.Sleep(900);
+				WoprWrite("GIN RUMMY", 35);
+				Thread.Sleep(800);
+				WoprWrite("HEARTS", 35);
+				Thread.Sleep(700);
+				WoprWrite("BRIDGE", 35);
+				Thread.Sleep(600);
+				WoprWrite("CHECKERS", 35);
+				Thread.Sleep(500);
+				WoprWrite("CHESS", 35);
+				Thread.Sleep(500);
+				WoprWrite("POKER", 35);
+				Thread.Sleep(500);
+				WoprWrite("FIGHTER COMBAT", 35);
+				Thread.Sleep(500);
+				WoprWrite("GUERRILLA ENGAGEMENT", 35);
+				Thread.Sleep(500);
+				WoprWrite("DESERT WARFARE", 35);
+				Thread.Sleep(500);
+				WoprWrite("AIR-TO-GROUND ACTIONS", 35);
+				Thread.Sleep(500);
+				WoprWrite("THEATERWIDE TACTICAL WARFARE", 35);
+				Thread.Sleep(500);
+				WoprWrite("THEATERWIDE BIOTOXIC AND CHEMICAL WARFARE\r\n", 35);
 
-			Thread.Sleep(1000);
-			WoprWrite("GLOBAL THERMONUCLEAR WAR\r\n", 50);
-			Thread.Sleep(1000);
-			WoprWrite("LOGON: ", 50);
-			Console.Out.Flush();
-			password = Console.ReadLine();
-			if (password == "Joshua")
-			{
-				OpenTheWopr();
+				Thread.Sleep(1000);
+				WoprWrite("GLOBAL THERMONUCLEAR WAR\r\n", 35);
+				Thread.Sleep(1000);
+				continue;
 			}
-		}
-		else
-		{
-			WoprWrite("IDENTIFICATION NOT RECOGNIZED BY SYSTEM", 50);
-			WoprWrite("---CONNECTION TERMINATED---", 50);
+			else
+            {
+				logon = false;
+				WoprWrite("IDENTIFICATION NOT RECOGNIZED BY SYSTEM", 35);
+				WoprWrite("---CONNECTION TERMINATED---", 35);
+			}
 		}
 	}
 }
