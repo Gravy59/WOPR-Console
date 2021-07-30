@@ -1,4 +1,5 @@
-skip_commits:
-  message: /Created.*\.(png|jpg|jpeg|bmp|gif)/
-  author: Gravy59
-version: 2.1.{build}
+configuration: Release
+
+# restore NuGet packages before running MSBuild
+before_build:
+  - nuget restore
