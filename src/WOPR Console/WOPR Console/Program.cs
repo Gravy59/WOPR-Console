@@ -278,7 +278,7 @@ class Program
 				continue;
 			}
 			else
-            {
+			{
 				logon = false;
 				WoprWrite("IDENTIFICATION NOT RECOGNIZED BY SYSTEM", 35);
 				WoprWrite("---CONNECTION TERMINATED---", 35);
